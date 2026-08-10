@@ -150,9 +150,9 @@ export function ApparelViewport({ active }: { active: boolean }) {
         <Rig index={index} />
       </Canvas>
       <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 text-center font-mono text-[10px] tracking-[0.35em] text-steel uppercase">
-        {GARMENTS[index].name}
+        {GARMENTS[index]?.name}
         <span className="mt-1 block text-[9px] tracking-[0.25em] text-steel/60">
-          {GARMENTS[index].code}
+          {GARMENTS[index]?.code}
         </span>
       </div>
     </div>
