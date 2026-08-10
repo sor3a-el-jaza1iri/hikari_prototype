@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { LogoStage } from "@/components/LogoStage";
+import { LogoStage, LOGO_BOX } from "@/components/LogoStage";
+import { HikariLogo } from "@/components/HikariLogo";
 import { ApparelViewport } from "@/components/ApparelViewport";
 
 
