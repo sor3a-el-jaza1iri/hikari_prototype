@@ -201,10 +201,10 @@
 @keyframes kumo-pulse {
   0%,
   100% {
-    opacity: 0.04;
+    opacity: 0.4;
   }
   50% {
-    opacity: 0.18;
+    opacity: 0.55;
   }
 }
 
