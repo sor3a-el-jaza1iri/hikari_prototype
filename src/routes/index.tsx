@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Preloader } from "@/components/Preloader";
+import { LogoStage } from "@/components/LogoStage";
 import { ApparelViewport } from "@/components/ApparelViewport";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
