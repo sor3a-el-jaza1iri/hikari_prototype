@@ -32,14 +32,22 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-obsidian">
-      <LogoStage onMorphComplete={handleDone} />
+      <LogoStage onDone={handleDone} />
 
-      {/* Background layers */}
-      <div className="kumo-layer pointer-events-none absolute inset-0" aria-hidden />
+      {/* Background layers (scroll with the hero) */}
+      <div className="kumo-layer pointer-events-none absolute inset-0 z-0" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_55%,rgba(115,8,0,0.18),transparent_60%)]"
+        aria-hidden
+        className={`pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${LOGO_BOX}`}
+      >
+        <HikariLogo className="w-full" mode="ambient" />
+      </div>
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_55%,rgba(115,8,0,0.18),transparent_60%)]"
         aria-hidden
       />
+
+
 
 
       {/* Foreground */}
