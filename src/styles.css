@@ -142,3 +142,106 @@
     color: var(--color-foreground);
   }
 }
+
+/* ===== Hikari brand layer ===== */
+:root {
+  --hikari-red: #730800;
+  --hikari-red-hot: #8f0a00;
+  --obsidian: #080808;
+  --zinc-surface: #121215;
+  --offwhite: #e5e5e5;
+  --steel: #707075;
+}
+
+@theme inline {
+  --color-hikari-red: var(--hikari-red);
+  --color-hikari-red-hot: var(--hikari-red-hot);
+  --color-obsidian: var(--obsidian);
+  --color-zinc-surface: var(--zinc-surface);
+  --color-offwhite: var(--offwhite);
+  --color-steel: var(--steel);
+}
+
+/* Preloader logo: stroke draw then fill */
+.logo-drawing path {
+  fill: transparent;
+  stroke: var(--hikari-red);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  animation: logo-draw 1.5s ease-in-out forwards;
+}
+
+.logo-filled path {
+  stroke: var(--hikari-red);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 0;
+  fill: var(--hikari-red);
+  animation: logo-fill 0.6s ease-out forwards;
+}
+
+@keyframes logo-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes logo-fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--hikari-red);
+  }
+}
+
+@keyframes kumo-pulse {
+  0%,
+  100% {
+    opacity: 0.04;
+  }
+  50% {
+    opacity: 0.18;
+  }
+}
+
+@utility kumo-layer {
+  background-image: url("/images/kumo.svg");
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: kumo-pulse 4s ease-in-out infinite;
+}
+
+@keyframes hikari-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility hikari-rise {
+  animation: hikari-rise 0.8s ease-out both;
+}
+
+@keyframes chevron-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+
+@utility chevron-pulse {
+  animation: chevron-pulse 1.8s ease-in-out infinite;
+}
