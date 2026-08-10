@@ -245,3 +245,12 @@
 @utility chevron-pulse {
   animation: chevron-pulse 1.8s ease-in-out infinite;
 }
+
+/* Ambient background state: logo persists, fades to dark crimson watermark */
+.logo-ambient path {
+  stroke: transparent;
+  fill: rgba(115, 8, 0, 0.08);
+  transition:
+    fill 1.2s cubic-bezier(0.65, 0, 0.35, 1),
+    stroke 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
