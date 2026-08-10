@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Preloader } from "@/components/Preloader";
+import { LogoStage } from "@/components/LogoStage";
 import { ApparelViewport } from "@/components/ApparelViewport";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,22 +32,15 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-obsidian">
-      {!isLoaded && <Preloader onDone={handleDone} />}
+      <LogoStage onMorphComplete={handleDone} />
 
       {/* Background layers */}
       <div className="kumo-layer pointer-events-none absolute inset-0" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        aria-hidden
-      >
-        <span className="text-[20vw] leading-none font-black tracking-tighter text-white/[0.03] select-none">
-          HIKARI
-        </span>
-      </div>
-      <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_55%,rgba(115,8,0,0.18),transparent_60%)]"
         aria-hidden
       />
+
 
       {/* Foreground */}
       <div className="relative z-10 flex min-h-screen flex-col">
