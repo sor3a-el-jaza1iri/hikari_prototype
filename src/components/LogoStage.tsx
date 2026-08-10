@@ -1,61 +1,53 @@
 import { useEffect, useState } from "react";
 import { HikariLogo } from "./HikariLogo";
 
-export type LogoPhase = "draw" | "fill" | "morph" | "ambient";
+export type LogoPhase = "draw" | "fill" | "dissolve" | "done";
+
+/** Shared geometry so the loader logo and the hero watermark are pixel-identical. */
+export const LOGO_BOX = "w-[80vw] max-w-6xl";
 
 /**
- * Persistent Hikari logo. It draws, fills crimson, then morphs (never unmounts)
- * into the full-bleed ambient background watermark.
+ * Preloader overlay. The logo is rendered at the exact same size/coordinates as
+ * the hero watermark beneath it, so when the overlay fades there is no shift.
  */
-export function LogoStage({ onMorphComplete }: { onMorphComplete: () => void }) {
+export function LogoStage({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<LogoPhase>("draw");
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const timers = [
       setTimeout(() => setPhase("fill"), 1500),
-      setTimeout(() => setPhase("morph"), 2150),
+      setTimeout(() => setPhase("dissolve"), 2100),
+      setTimeout(() => setPhase("done"), 2500),
       setTimeout(() => {
-        setPhase("ambient");
-        onMorphComplete();
-      }, 3350),
+        setHidden(true);
+        onDone();
+      }, 3000),
     ];
     return () => timers.forEach(clearTimeout);
-  }, [onMorphComplete]);
+  }, [onDone]);
 
-  const isBackground = phase === "morph" || phase === "ambient";
+  if (hidden) return null;
 
   return (
-    <>
-      {/* Obsidian curtain fades away as the logo morphs back */}
-      <div
-        aria-hidden
-        className={`pointer-events-none fixed inset-0 z-40 bg-obsidian transition-opacity duration-[1200ms] ease-[cubic-bezier(0.65,0,0.35,1)] ${
-          isBackground ? "opacity-0" : "opacity-100"
-        }`}
+    <div
+      aria-hidden
+      className={`pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-obsidian transition-opacity duration-500 ease-out ${
+        phase === "done" ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      <HikariLogo
+        className={LOGO_BOX}
+        mode={phase === "draw" ? "draw" : phase === "fill" ? "fill" : "ambient"}
       />
 
-      <div
-        aria-hidden
-        className={`pointer-events-none fixed inset-0 flex items-center justify-center ${
-          isBackground ? "z-0" : "z-50"
-        }`}
-      >
-        <HikariLogo
-          className={`logo-stage w-[62vw] max-w-3xl transition-[transform,opacity] duration-[1200ms] ease-[cubic-bezier(0.65,0,0.35,1)] ${
-            isBackground ? "scale-[2.2] opacity-100" : "scale-100 opacity-100"
-          }`}
-          mode={phase === "draw" ? "draw" : isBackground ? "ambient" : "fill"}
-        />
-      </div>
-
       <p
-        aria-hidden={isBackground}
-        className={`pointer-events-none fixed inset-x-0 bottom-[22vh] z-50 text-center font-mono text-[10px] tracking-[0.5em] text-steel uppercase transition-opacity duration-500 ${
-          isBackground ? "opacity-0" : "opacity-100"
+        className={`absolute inset-x-0 bottom-[18vh] text-center font-mono text-[10px] tracking-[0.5em] text-steel uppercase transition-opacity duration-300 ${
+          phase === "draw" ? "opacity-100" : "opacity-0"
         }`}
       >
-        {phase === "draw" ? "Calibrating" : "System ready"}
+        Calibrating
       </p>
-    </>
+    </div>
   );
 }
