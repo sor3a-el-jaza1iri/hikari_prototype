@@ -14,7 +14,7 @@ export function SiteHeader({ isLoaded }: { isLoaded: boolean }) {
           aria-label="Hikari"
           className={`transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         >
-          <HikariLogo className="h-8 w-8 fill-none stroke-white" mode="outline" />
+          <HikariLogo className="h-8 w-auto max-w-[6rem] fill-none stroke-white text-white" mode="outline" />
         </a>
 
         <div className="flex min-w-0 items-center justify-end gap-2 sm:gap-3">
