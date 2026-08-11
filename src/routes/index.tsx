@@ -62,13 +62,14 @@ function Storefront() {
         />
 
         {/* Isolated 3D viewport overlay */}
-        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center overflow-hidden">
           <div
-            className={`h-[60vh] max-h-[600px] w-full max-w-4xl transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+            className={`h-[60vh] max-h-[600px] w-full max-w-4xl overflow-hidden transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
           >
             <ApparelViewport active={isLoaded} />
           </div>
         </div>
+
 
         {/* Foreground */}
         <div className="relative z-20 flex min-h-screen flex-col">
