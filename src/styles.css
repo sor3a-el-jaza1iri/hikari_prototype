@@ -133,6 +133,13 @@
 }
 
 @layer base {
+  html,
+  body {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+    width: 100%;
+  }
+
   * {
     border-color: var(--color-border);
   }
@@ -201,10 +208,10 @@
 @keyframes kumo-pulse {
   0%,
   100% {
-    opacity: 0.4;
+    opacity: 0.3;
   }
   50% {
-    opacity: 0.55;
+    opacity: 0.38;
   }
 }
 
@@ -249,7 +256,7 @@
 /* Ambient background state: logo persists, fades to dark crimson watermark */
 .logo-ambient path {
   stroke: transparent;
-  fill: rgba(115, 8, 0, 0.08);
+  fill: rgba(115, 8, 0, 0.22);
   transition:
     fill 1.2s cubic-bezier(0.65, 0, 0.35, 1),
     stroke 1.2s cubic-bezier(0.65, 0, 0.35, 1);
