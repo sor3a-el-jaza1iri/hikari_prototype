@@ -86,13 +86,13 @@ export function CartPopup() {
           <button
             type="button"
             onClick={() => setCartOpen(false)}
-            className="w-1/2 rounded-none border border-white/20 px-3 py-2 font-mono text-xs text-white uppercase transition-colors hover:bg-white/10"
+            className="w-1/2 rounded-none border border-white/20 px-5 py-3 font-mono text-xs md:text-sm text-white uppercase transition-colors hover:bg-white/10"
           >
             {t("continueShopping")}
           </button>
           <button
             type="button"
-            className="w-1/2 rounded-none bg-hikari-red px-3 py-2 font-mono text-xs text-white uppercase transition-colors hover:bg-hikari-red-hot"
+            className="w-1/2 rounded-none bg-hikari-red px-5 py-3 font-mono text-xs md:text-sm text-white uppercase transition-colors hover:bg-hikari-red-hot"
           >
             {t("finishOrder")}
           </button>

@@ -157,7 +157,7 @@ export function ProductModal({ garment, onClose }: { garment: Garment; onClose: 
                 add(garment, qty);
                 onClose();
               }}
-              className="mt-5 w-full rounded-none bg-hikari-red py-3 font-mono text-xs tracking-widest text-white uppercase transition-colors hover:bg-hikari-red-hot"
+              className="mt-5 w-full rounded-none bg-hikari-red px-6 py-3.5 font-mono text-xs md:text-sm tracking-widest text-white uppercase transition-colors hover:bg-hikari-red-hot"
             >
               {t("addToCart")}
             </button>
