@@ -46,13 +46,14 @@ export function ApparelViewport({ active }: { active: boolean }) {
   if (!active) return null;
 
   return (
-    <div className="pointer-events-none relative h-full w-full">
+    <div className="pointer-events-none relative h-full w-full overflow-hidden">
       <Canvas
-        className="pointer-events-auto"
+        className="pointer-events-auto h-full w-full"
         camera={{ position: [0, 0.2, 4.6], fov: 42 }}
         dpr={[1, 1.8]}
         frameloop="always"
       >
+
         <StudioLights />
         {GARMENTS.map((g, i) => (
           <Apparel key={g.code} garment={g} active={i === index} />

@@ -161,6 +161,8 @@
 }
 
 @theme inline {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-hikari-red: var(--hikari-red);
   --color-hikari-red-hot: var(--hikari-red-hot);
   --color-obsidian: var(--obsidian);
@@ -267,6 +269,8 @@
 .logo-outline path {
   fill: none;
   stroke: currentColor;
-  stroke-width: 260px;
+  stroke-width: 3.5px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
 }
 

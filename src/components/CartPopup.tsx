@@ -41,7 +41,10 @@ export function CartPopup() {
                 <p className="truncate font-mono text-[11px] tracking-widest text-offwhite uppercase">
                   {l.garment.name}
                 </p>
-                <p className="font-mono text-[10px] text-steel">${l.garment.price.toFixed(2)}</p>
+                <p className="font-mono text-[10px] text-steel">
+                  ${l.garment.price.toFixed(2)}
+                  {l.size ? ` / SIZE ${l.size}` : ""}
+                </p>
                 <div className="mt-1 flex items-center gap-2">
                   <button
                     type="button"
@@ -86,13 +89,13 @@ export function CartPopup() {
           <button
             type="button"
             onClick={() => setCartOpen(false)}
-            className="w-1/2 rounded-none border border-white/20 px-5 py-3 font-mono text-xs md:text-sm text-white uppercase transition-colors hover:bg-white/10"
+            className="w-[60%] rounded-none border border-white/20 px-5 py-3 font-mono text-xs md:text-sm text-white uppercase transition-colors hover:bg-white/10"
           >
             {t("continueShopping")}
           </button>
           <button
             type="button"
-            className="w-1/2 rounded-none bg-hikari-red px-5 py-3 font-mono text-xs md:text-sm text-white uppercase transition-colors hover:bg-hikari-red-hot"
+            className="w-[40%] rounded-none bg-hikari-red px-5 py-3 font-mono text-xs md:text-sm text-white uppercase transition-colors hover:bg-hikari-red-hot"
           >
             {t("finishOrder")}
           </button>

@@ -59,7 +59,29 @@ export type TKey = keyof (typeof DICT)["en"];
 
 /* ---------------- cart ---------------- */
 
-export type CartLine = { garment: Garment; qty: number };
+export type CartLine = { garment: Garment; qty: number; size?: string };
+
+/* Mockup cart contents so the bag popup is inspectable on load */
+const SEED_LINES: CartLine[] = [
+  {
+    garment: {
+      ...GARMENTS[0]!,
+      name: "HIKARI HEAVY HOODIE 001",
+      price: 120,
+    },
+    qty: 1,
+    size: "L",
+  },
+  {
+    garment: {
+      ...GARMENTS[1]!,
+      name: "KUMO GRAPHIC TEE",
+      price: 55,
+    },
+    qty: 2,
+    size: "M",
+  },
+];
 
 type StoreValue = {
   lang: Lang;
@@ -80,7 +102,7 @@ const StoreContext = createContext<StoreValue | null>(null);
 
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
-  const [lines, setLines] = useState<CartLine[]>([]);
+  const [lines, setLines] = useState<CartLine[]>(SEED_LINES);
   const [cartOpen, setCartOpen] = useState(false);
 
   const t = useCallback((k: TKey) => DICT[lang][k], [lang]);
