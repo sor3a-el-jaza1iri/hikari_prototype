@@ -43,7 +43,7 @@ export function CartPopup() {
                 </p>
                 <p className="font-mono text-[10px] text-steel">
                   ${l.garment.price.toFixed(2)}
-                  {l.size ? ` / ${"SIZE"} ${l.size}` : ""}
+                  {l.size ? ` / SIZE ${l.size}` : ""}
                 </p>
                 <div className="mt-1 flex items-center gap-2">
                   <button
