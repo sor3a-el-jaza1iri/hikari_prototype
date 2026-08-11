@@ -142,11 +142,16 @@ export function ApparelViewport({ active }: { active: boolean }) {
     return () => clearInterval(id);
   }, [active]);
 
-  if (!active) return <div className="h-[46vh] min-h-[300px] w-full" aria-hidden />;
+  if (!active) return null;
 
   return (
-    <div className="relative h-[46vh] min-h-[300px] w-full">
-      <Canvas camera={{ position: [0, 0.2, 4.6], fov: 42 }} dpr={[1, 1.8]} frameloop="always">
+    <div className="pointer-events-none relative h-full w-full">
+      <Canvas
+        className="pointer-events-auto"
+        camera={{ position: [0, 0.2, 4.6], fov: 42 }}
+        dpr={[1, 1.8]}
+        frameloop="always"
+      >
         <Rig index={index} />
       </Canvas>
       <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 text-center font-mono text-[10px] tracking-[0.35em] text-steel uppercase">
