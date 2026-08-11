@@ -208,12 +208,13 @@
 @keyframes kumo-pulse {
   0%,
   100% {
-    opacity: 0.22;
+    opacity: 0.13;
   }
   50% {
-    opacity: 0.28;
+    opacity: 0.17;
   }
 }
+
 
 @utility kumo-layer {
   background-image: url("/images/kumo.svg");
