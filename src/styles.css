@@ -261,3 +261,10 @@
     fill 1.2s cubic-bezier(0.65, 0, 0.35, 1),
     stroke 1.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+/* Small header mark: sharp white outline */
+.logo-outline path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 40px;
+}
