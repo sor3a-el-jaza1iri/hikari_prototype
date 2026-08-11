@@ -32,14 +32,14 @@ function Index() {
   const handleDone = useCallback(() => setIsLoaded(true), []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-obsidian">
+    <main className="relative w-full min-h-screen overflow-hidden bg-obsidian">
       <LogoStage onDone={handleDone} />
 
       {/* Background layers (scroll with the hero) */}
       <div className="kumo-layer pointer-events-none absolute inset-0 z-0" aria-hidden />
       <div
         aria-hidden
-        className={`pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${LOGO_BOX}`}
+        className={`pointer-events-none absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 ${LOGO_BOX}`}
       >
         <HikariLogo className="w-full" mode="ambient" />
       </div>
@@ -52,7 +52,7 @@ function Index() {
 
 
       {/* Foreground */}
-      <div className="relative z-10 flex min-h-screen flex-col">
+      <div className="relative z-20 flex min-h-screen flex-col">
         <header className="flex items-center justify-between border-b border-white/5 px-6 py-5 font-mono text-[10px] tracking-[0.35em] text-steel uppercase">
           <span className="text-offwhite">HIKARI</span>
           <span>SS/26 — 光</span>
