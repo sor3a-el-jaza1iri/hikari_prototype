@@ -48,8 +48,14 @@ function Index() {
         aria-hidden
       />
 
-
-
+      {/* Isolated 3D viewport overlay — never affects document layout */}
+      <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+        <div
+          className={`h-[600px] w-full max-w-4xl transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        >
+          <ApparelViewport active={isLoaded} />
+        </div>
+      </div>
 
       {/* Foreground */}
       <div className="relative z-20 flex min-h-screen flex-col">
@@ -58,15 +64,9 @@ function Index() {
           <span>SS/26 — 光</span>
         </header>
 
-        <section className="flex flex-1 flex-col items-center justify-center px-6 py-10">
-          <div
-            className={`w-full max-w-4xl transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-          >
-            <ApparelViewport active={isLoaded} />
-          </div>
-
+        <section className="pointer-events-none flex flex-1 flex-col items-center justify-end px-6 pb-10">
           {isLoaded && (
-            <div className="hikari-rise mt-10 flex flex-col items-center gap-6 text-center">
+            <div className="hikari-rise pointer-events-auto flex flex-col items-center gap-6 text-center">
               <div className="border border-white/10 bg-zinc-surface px-5 py-2 font-mono text-[10px] tracking-[0.4em] text-steel uppercase">
                 Drop 001 — Kumo Series
               </div>
