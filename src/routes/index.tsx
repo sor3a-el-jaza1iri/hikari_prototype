@@ -44,12 +44,12 @@ function Storefront() {
 
   return (
     <main className="relative w-full bg-obsidian">
+      <div className="kumo-layer pointer-events-none absolute inset-0 z-0" aria-hidden />
       <LogoStage onDone={handleDone} />
       <SiteHeader isLoaded={isLoaded} />
 
-      <section className="relative min-h-screen w-full overflow-hidden bg-obsidian">
+      <section className="relative min-h-screen w-full overflow-hidden">
         {/* Background layers */}
-        <div className="kumo-layer pointer-events-none absolute inset-0 z-0" aria-hidden />
         <div
           aria-hidden
           className={`pointer-events-none absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 ${LOGO_BOX}`}
@@ -81,13 +81,13 @@ function Storefront() {
                 <h1 className="max-w-2xl text-3xl font-black tracking-tight text-offwhite uppercase sm:text-6xl">
                   {t("headline1")} <span className="text-hikari-red">{t("headline2")}</span>
                 </h1>
-                <p className="max-w-md font-mono text-[11px] leading-relaxed tracking-widest text-steel sm:text-xs">
+                <p className="max-w-md font-mono text-xs tracking-wider text-steel uppercase md:text-sm">
                   {t("tagline")}
                 </p>
 
                 <a
                   href="#shop"
-                  className="rounded-none bg-hikari-red px-8 py-3 font-mono tracking-widest text-white uppercase shadow-[0_0_30px_-6px_#730800] transition-colors hover:bg-hikari-red-hot"
+                  className="rounded-none bg-hikari-red px-10 py-4 font-mono text-xs tracking-widest md:text-sm text-white uppercase shadow-[0_0_30px_-6px_#730800] transition-colors hover:bg-hikari-red-hot"
                 >
                   {t("shopNow")}
                 </a>

@@ -36,7 +36,7 @@ function ProductCard({ garment, onOpen }: { garment: Garment; onOpen: () => void
       <button
         type="button"
         onClick={() => add(garment)}
-        className="mt-2 w-full rounded-none bg-hikari-red py-2 font-mono text-[10px] tracking-widest text-white uppercase transition-colors hover:bg-hikari-red-hot md:text-xs"
+        className="mt-2 w-full rounded-none bg-hikari-red px-5 py-2.5 font-mono text-xs tracking-widest text-white uppercase transition-colors hover:bg-hikari-red-hot md:py-3 md:text-sm"
       >
         {t("addToCart")}
       </button>
@@ -49,7 +49,7 @@ export function ProductGrid() {
   const [selected, setSelected] = useState<Garment | null>(null);
 
   return (
-    <section id="shop" className="relative z-20 border-t border-white/5 bg-obsidian">
+    <section id="shop" className="relative z-20 border-t border-white/5">
       <div className="px-4 pt-10 md:px-8">
         <h2 className="text-2xl font-black tracking-tight text-offwhite uppercase md:text-4xl">
           {t("collection")}
