@@ -28,8 +28,10 @@ export function GarmentMesh({ garment }: { garment: Garment }) {
         const mesh = child as Mesh;
         if (mesh.material) {
           const mat = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
-          mat.transparent = true;
-          mat.needsUpdate = true;
+          if (mat) {
+            mat.transparent = true;
+            mat.needsUpdate = true;
+          }
         }
       }
     });

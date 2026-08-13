@@ -83,8 +83,8 @@ function Storefront() {
 
                 {/* Title */}
                 <h1 className="text-3xl font-black tracking-tight text-offwhite uppercase leading-tight sm:text-6xl sm:leading-none">
-                  {t("headline1")}{" "}
-                  <span className="block sm:inline text-hikari-red">
+                  <span className="block">{t("headline1")}</span>
+                  <span className="block text-hikari-red">
                     {t("headline2")}
                   </span>
                 </h1>
