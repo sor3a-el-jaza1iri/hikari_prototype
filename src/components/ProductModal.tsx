@@ -26,27 +26,43 @@ export function ProductModal({ garment, onClose }: { garment: Garment; onClose: 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 backdrop-blur-md sm:p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-2 backdrop-blur-md sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-label={garment.name}
       onClick={onClose}
     >
+      {/* Close button – fixed to viewport on larger screens only */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        aria-label={t("close")}
+        className="fixed top-4 right-4 z-50 hidden border border-white/15 bg-black/50 p-1.5 text-steel transition-colors backdrop-blur-sm hover:text-offwhite md:block"
+      >
+        <X className="h-4 w-4" />
+      </button>
+
       <div
         className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto border border-white/15 bg-zinc-surface p-3 sm:p-5"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label={t("close")}
-          className="absolute top-2 right-2 z-10 border border-white/15 p-1.5 text-steel transition-colors hover:text-offwhite"
-        >
-          <X className="h-4 w-4" />
-        </button>
+        {/* Close button – shown above the media stage on small screens */}
+        <div className="mb-2 flex justify-end md:hidden">
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={t("close")}
+            className="border border-white/15 p-1.5 text-steel transition-colors hover:text-offwhite"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
 
+        {/* media stage + action panel */}
         <div className="grid gap-4 md:grid-cols-2">
-          {/* media stage */}
           <div className="flex gap-2">
             <div className="relative aspect-square min-w-0 flex-1 border border-white/10 bg-obsidian">
               {view === null ? (

@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { LogoStage, LOGO_BOX } from "@/components/LogoStage";
 import { HikariLogo } from "@/components/HikariLogo";
-import { ApparelViewport } from "@/components/ApparelViewport";
+import {ApparelViewport} from '@/components/ApparelViewport';
 import { SiteHeader } from "@/components/SiteHeader";
 import { ProductGrid } from "@/components/ProductGrid";
 import { StoreProvider, useStore } from "@/lib/store";
@@ -57,7 +57,7 @@ function Storefront() {
           <HikariLogo className="w-full" mode="ambient" />
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_55%,rgba(115,8,0,0.18),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_55%,rgba(115,8,0,0.15)_30%,rgba(115,8,0,0.25)_35%,rgba(255,255,255,0.95)_30%,rgba(255,255,255,1)_35%,rgba(255,255,255,0.4)_30%,transparent_36%)] drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
           aria-hidden
         />
 
@@ -66,35 +66,42 @@ function Storefront() {
           <div
             className={`h-[60vh] max-h-[600px] w-full max-w-4xl overflow-hidden transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"}`}
           >
-            <ApparelViewport active={isLoaded} />
+            <ApparelViewport active={true} />
           </div>
         </div>
 
 
         {/* Foreground */}
-        <div className="relative z-20 flex min-h-screen flex-col">
-          <div className="pointer-events-none flex flex-1 flex-col items-center justify-end px-4 pt-24 pb-10 sm:px-6">
+        <div className="relative z-20 flex min-h-screen flex-col justify-end">
+          <div className="pointer-events-none flex flex-1 flex-col items-center justify-end px-4 pt-24 pb-8 sm:px-6 sm:pb-12">
             {isLoaded && (
-              <div className="hikari-rise pointer-events-auto flex flex-col items-center gap-5 text-center sm:gap-6">
+              <div className="hikari-rise pointer-events-auto flex flex-col items-center text-center space-y-4 sm:space-y-6 max-w-3xl w-full">
+                {/* Drop Badge */}
                 <div className="border border-white/10 bg-zinc-surface px-4 py-2 font-mono text-[9px] tracking-[0.35em] text-steel uppercase sm:px-5 sm:text-[10px]">
                   {t("dropBadge")}
                 </div>
-                <h1 className="max-w-2xl text-3xl font-black tracking-tight text-offwhite uppercase sm:text-6xl">
-                  {t("headline1")} <span className="text-hikari-red">{t("headline2")}</span>
+
+                {/* Title */}
+                <h1 className="text-3xl font-black tracking-tight text-offwhite uppercase leading-tight sm:text-6xl sm:leading-none">
+                  {t("headline1")}{" "}
+                  <span className="block sm:inline text-hikari-red">
+                    {t("headline2")}
+                  </span>
                 </h1>
-                <p className="max-w-md font-mono text-xs tracking-wider text-steel uppercase md:text-sm">
-                  {t("tagline")}
-                </p>
 
-                <a
-                  href="#shop"
-                  className="rounded-none bg-hikari-red px-10 py-4 font-mono text-xs tracking-widest md:text-sm text-white uppercase shadow-[0_0_30px_-6px_#730800] transition-colors hover:bg-hikari-red-hot"
-                >
-                  {t("shopNow")}
-                </a>
+                {/* Shop CTA Button (Lowered with explicit responsive margins) */}
+                <div className="pt-16 sm:pt-8">
+                  <a
+                    href="#shop"
+                    className="inline-block rounded-none bg-hikari-red px-8 py-3.5 font-mono text-xs tracking-widest text-white uppercase shadow-[0_0_30px_-6px_#730800] transition-all hover:bg-hikari-red-hot sm:px-10 sm:py-4 sm:text-sm"
+                  >
+                    {t("shopNow")}
+                  </a>
+                </div>
 
-                <div className="mt-4 flex flex-col items-center gap-2 sm:mt-6">
-                  <span className="font-mono text-[9px] tracking-[0.35em] text-steel sm:text-[10px]">
+                {/* Scroll Indicator */}
+                <div className="pt-2 flex flex-col items-center gap-2 sm:pt-4">
+                  <span className="font-mono text-[10px] tracking-[0.35em] text-white font-semibold sm:text-[10px]">
                     {t("scroll")}
                   </span>
                   <ChevronDown className="chevron-pulse h-4 w-4 text-hikari-red" aria-hidden />

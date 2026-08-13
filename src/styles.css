@@ -210,10 +210,10 @@
 @keyframes kumo-pulse {
   0%,
   100% {
-    opacity: 0.13;
+    opacity: 0.08
   }
   50% {
-    opacity: 0.17;
+    opacity: 0.1;
   }
 }
 
@@ -274,3 +274,57 @@
   stroke-linejoin: round;
 }
 
+@layer base {
+  html,
+  body {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    width: 100%;
+  }
+
+  body {
+    background-color: var(--obsidian);
+    color: var(--offwhite);
+  }
+}
+
+
+
+/* ===== Custom scrollbar ===== */
+@layer base {
+  /* WebKit (Chrome, Edge, Safari) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--obsidian);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--steel);
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--hikari-red);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--obsidian);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--hikari-red) var(--obsidian);
+  }
+
+  /* Optional: hover effect for Firefox (via scrollbar-color can't animate, but we can add a class) */
+  /* If you want a red hover in Firefox too, you'd need a JS workaround – this is a static alternative */
+  /* You can set scrollbar-color to var(--hikari-red) var(--obsidian) for a bolder look */
+}

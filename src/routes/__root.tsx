@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-
+import StickyFooter from "@/components/Footer";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -99,7 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
-
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -126,8 +125,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="relative min-h-screen bg-obsidian text-offwhite">
+        
+        {/* Main content sits ON TOP (z-10), has a SOLID background, and has a bottom margin equal to footer height */}
+        <main className="relative z-10 bg-obsidian min-h-screen w-full shadow-2xl mb-[380px]">
+          <Outlet />
+        </main>
+
+        {/* Footer sits FIXED at the very bottom behind everything (z-0) */}
+        <StickyFooter />
+      </div>
     </QueryClientProvider>
   );
 }

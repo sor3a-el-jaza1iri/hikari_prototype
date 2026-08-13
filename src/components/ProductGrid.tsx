@@ -49,7 +49,7 @@ export function ProductGrid() {
   const [selected, setSelected] = useState<Garment | null>(null);
 
   return (
-    <section id="shop" className="relative z-20 border-t border-white/5">
+    <section id="shop" className="relative z-20 ">
       <div className="px-4 pt-10 md:px-8">
         <h2 className="text-2xl font-black tracking-tight text-offwhite uppercase md:text-4xl">
           {t("collection")}

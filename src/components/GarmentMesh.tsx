@@ -16,7 +16,7 @@ export function GarmentMesh({ garment }: { garment: Garment }) {
         <meshStandardMaterial {...fabric} />
       </mesh>
       <mesh position={[0, h / 2 - 0.08, 0]}>
-        <boxGeometry args={[w + 0.14, 0.22, d + 0.04]} />
+        <boxGeometry args={[w + 0.14, 0.2, d + 0.04]} />
         <meshStandardMaterial {...fabric} />
       </mesh>
       {[-1, 1].map((s) => (

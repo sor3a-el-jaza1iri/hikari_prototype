@@ -20,6 +20,7 @@ export type Garment = {
   sleeveLength: number;
   hood: boolean;
   collar: boolean;
+  gltfPath: string;
 };
 
 export const GARMENTS: Garment[] = [
@@ -44,6 +45,7 @@ export const GARMENTS: Garment[] = [
     sleeveLength: 1.35,
     hood: true,
     collar: false,
+    gltfPath: '/3d/Shirt Long Sleeves/Shirt Long Sleeves.glb',
   },
   {
     id: "hk-02",
@@ -66,6 +68,7 @@ export const GARMENTS: Garment[] = [
     sleeveLength: 0.62,
     hood: false,
     collar: false,
+    gltfPath: '/3d/jacket/Jacket.glb',
   },
   {
     id: "hk-03",
@@ -88,5 +91,6 @@ export const GARMENTS: Garment[] = [
     sleeveLength: 1.45,
     hood: false,
     collar: true,
+    gltfPath: '/3d/female_jacket/Female_Jacket.gltf',
   },
 ];
